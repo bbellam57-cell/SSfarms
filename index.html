@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS Farms</title>
+    <style>
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        body { 
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            color: #2d3748; 
+            padding: 30px 15px; 
+            min-height: 100vh;
+        }
+        .container { 
+            max-width: 550px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 30px 25px; 
+            border-radius: 24px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); 
+        }
+        
+        /* Header styling */
+        header { 
+            text-align: center; 
+            margin-bottom: 25px; 
+        }
+        h1 { 
+            color: #1a4331; 
+            font-size: 28px; 
+            font-weight: 800;
+            margin-bottom: 6px; 
+            letter-spacing: -0.5px;
+        }
+        p.subtitle { 
+            color: #687545; 
+            font-size: 15px; 
+            font-weight: 500;
+            margin-bottom: 20px; 
+        }
+        
+        /* Owner Info Box */
+        .owner-card {
+            background: #f0fdf4; 
+            border: 1px solid #bbf7d0; 
+            padding: 16px; 
+            border-radius: 16px; 
+            text-align: left;
+        }
+        .owner-title {
+            color: #166534;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .owner-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+        .owner-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #1e293b;
+        }
+        .owner-name {
+            font-weight: 600;
+        }
+        .owner-phone {
+            color: #15803d;
+            text-decoration: none;
+            font-weight: 700;
+            background: #dcfce7;
+            padding: 4px 10px;
+            border-radius: 20px;
+            transition: all 0.2s;
+            display: inline-block;
+            cursor: pointer;
+            pointer-events: auto;
+        }
+        .owner-phone:hover {
+            background: #bbf7d0;
+            transform: scale(1.03);
+        }
+
+        /* Emergency Contact Divider & Styling */
+        .emergency-divider {
+            border-top: 1px dashed #bbf7d0;
+            margin: 8px 0;
+            padding-top: 8px;
+        }
+        .emergency-phone {
+            color: #b91c1c;
+            background: #fee2e2;
+        }
+        .emergency-phone:hover {
+            background: #fca5a5;
+        }
+
+        /* Product Cards */
+        .product-list { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 16px; 
+            margin-top: 25px; 
+        }
+        .product-card { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 18px; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 18px; 
+            background: #fff; 
+            transition: all 0.2s ease-in-out; 
+        }
+        .product-card:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04); 
+            border-color: #cbd5e1;
+        }
+        .product-details { 
+            display: flex; 
+            align-items: center; 
+            gap: 16px; 
+        }
+        .product-icon { 
+            font-size: 38px; 
+            background: #f8fafc;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+        }
+        .product-name { 
+            font-weight: 700; 
+            font-size: 17px; 
+            color: #1e293b; 
+        }
+        .product-price { 
+            color: #64748b; 
+            font-size: 13px; 
+            margin-top: 3px; 
+        }
+
+        /* Order Button */
+        .order-btn { 
+            background-color: #25D366; 
+            color: white; 
+            border: none; 
+            padding: 10px 18px; 
+            border-radius: 25px; 
+            font-weight: 700; 
+            text-decoration: none; 
+            font-size: 13px; 
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+            white-space: nowrap;
+        }
+        .order-btn:hover { 
+            background-color: #128C7E; 
+            box-shadow: 0 4px 15px rgba(18, 140, 126, 0.3);
+            transform: scale(1.02);
+        }
+
+        footer { 
+            text-align: center; 
+            margin-top: 30px; 
+            font-size: 13px; 
+            color: #64748b; 
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>SS Farms</h1>
+        <p class="subtitle">Direct from our farm to your home</p>
+        
+        <div class="owner-card">
+            <div class="owner-title">👨‍🌾 Proprietors Contact:</div>
+            <div class="owner-grid">
+                <div class="owner-row">
+                    <span class="owner-name">Pasi</span>
+                    <a href="tel:9676715466" class="owner-phone">📞 9676715466</a>
+                </div>
+                <div class="owner-row">
+                    <span class="owner-name">Srinu</span>
+                    <a href="tel:8374315466" class="owner-phone">📞 8374315466</a>
+                </div>
+                <div class="owner-row">
+                    <span class="owner-name">Bhargav</span>
+                    <a href="tel:9492923005" class="owner-phone">📞 9492923005</a>
+                </div>
+                
+                <!-- Emergency Contact Section -->
+                <div class="owner-row emergency-divider">
+                    <span class="owner-name" style="color: #b91c1c; font-weight: 700;">🚨 Emergency Contact (Sai):</span>
+                    <a href="tel:6305517610" class="owner-phone emergency-phone">📞 6305517610</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="product-list">
+        <!-- Eggs routed directly to Pasi -->
+        <div class="product-card">
+            <div class="product-details">
+                <span class="product-icon">🥚</span>
+                <div>
+                    <div class="product-name">Fresh Eggs</div>
+                    <div class="product-price">High quality, wholesale prices</div>
+                </div>
+            </div>
+            <a href="https://wa.me/919676715466?text=Hi%20Pasi!%20I%20want%20to%20order%20Fresh%20Eggs.%20Please%20confirm%20my%20order." target="_blank" class="order-btn">Order Now</a>
+        </div>
+
+        <!-- Hens routed directly to Bhargav -->
+        <div class="product-card">
+            <div class="product-details">
+                <span class="product-icon">🐓</span>
+                <div>
+                    <div class="product-name">Live Hens</div>
+                    <div class="product-price">Healthy country & broiler hens</div>
+                </div>
+            </div>
+            <a href="https://wa.me/919492923005?text=Hi%20Bhargav!%20I%20want%20to%20order%20Live%20Hens.%20Please%20confirm%20my%20order." target="_blank" class="order-btn">Order Now</a>
+        </div>
+
+        <!-- Goats routed directly to Srinu -->
+        <div class="product-card">
+            <div class="product-details">
+                <span class="product-icon">🐐</span>
+                <div>
+                    <div class="product-name">Quality Goats</div>
+                    <div class="product-price">Best for functions & farming</div>
+                </div>
+            </div>
+            <a href="https://wa.me/918374315466?text=Hi%20Srinu!%20I%20want%20to%20order%20Quality%20Goats.%20Please%20confirm%20my%20order." target="_blank" class="order-btn">Order Now</a>
+        </div>
+
+        <!-- Buffalo Milk routed directly to Sai -->
+        <div class="product-card">
+            <div class="product-details">
+                <span class="product-icon">🥛</span>
+                <div>
+                    <div class="product-name">Buffalo Milk</div>
+                    <div class="product-price">100% Pure, fresh every morning</div>
+                </div>
+            </div>
+            <a href="https://wa.me/916305517610?text=Hi%20Sai!%20I%20want%20to%20order%20Buffalo%20Milk.%20Please%20confirm%20my%20order." target="_blank" class="order-btn">Order Now</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Clicking "Order Now" will open WhatsApp to submit your request instantly!</p>
+    </footer>
+</div>
+
+</body>
+</html>
